@@ -4,6 +4,8 @@
 
 Thor's Hammer is an ungrounded force feedback device that uses propeller propulsion to create 3-DOF force feedback. The device can create 4 N of force in three dimensions and it can be used to make the VR/AR interaction more immersive. You can find the paper to be published at ACM CHI 2018 [here](http://seongkookheo.com/thorshammer.pdf).
 
+![Thor's Hammer Prototype](Images/Device.jpg)
+
 ## What are in this repository?
 
 The purpose of this repository is to share materials needed to build Thor's Hammer so that people who are interested in building one (you) can build their own hammer. 
