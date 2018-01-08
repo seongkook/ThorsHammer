@@ -1,0 +1,56 @@
+﻿<Window x:Class="FlypticControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlypticControl"
+        mc:Ignorable="d"
+        Title="Thor Controller" Height="603.999" Width="1002.666" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Width="120" HorizontalAlignment="Left">
+            <Label FontWeight="Bold">Connections</Label>
+            <TextBox x:Name="portBox" Text="COM4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"/>
+            <Button x:Name="connectButton" Content="Open Serial" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97" Height="40" Click="connectButton_Click"/>
+            <Button x:Name="UDPConnectButton" Content="Open UDP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97" Height="40" Click="UDPConnectButton_Click"/>
+            <Label FontWeight="Bold">Throttle Range</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Min" Margin="10,5,0,0" Width="35"/>
+                <TextBox x:Name="idleBox" Text="5" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Max" Margin="10,5,0,0" Width="35"/>
+                <TextBox x:Name="maxBox" Text="120" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+            </StackPanel>
+            <Button x:Name="setButton"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97" Height="40" Click="setButton_Click">
+                <TextBlock TextAlignment="Center">Set <LineBreak/> Throttle Range</TextBlock>
+            </Button>
+        </StackPanel>
+        <CheckBox x:Name="Xcheck" Content="X" Margin="150, 50, 0, 0" Checked="CheckValueChanged" Unchecked="CheckValueChanged" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <CheckBox x:Name="Ycheck" Content="Y" Margin="150, 100, 0, 0" Checked="CheckValueChanged" Unchecked="CheckValueChanged" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <CheckBox x:Name="Zcheck" Content="Z" Margin="150, 150, 0, 0" Checked="CheckValueChanged" Unchecked="CheckValueChanged" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <Slider x:Name="Xslider" Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="150" ValueChanged="SliderValueChanged"/>
+        <Slider x:Name="Yslider" Minimum="0" Maximum="100" Value="50"  HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Width="150" ValueChanged="SliderValueChanged"/>
+        <Slider x:Name="Zslider" Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Width="150" ValueChanged="SliderValueChanged"/>
+        <Button x:Name="startButton" Background="Lime" Content="Start" Width="200" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="778,256,0,0" FontSize="20" FontWeight="Bold" Click="startButton_Click"/>
+        <Button x:Name="stoputton" Background="Pink" Content="Stop" Width="200" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="778,361,0,0" FontSize="20" FontWeight="Bold" Click="stoputton_Click"/>
+        <Label Content="X-Y force control" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="136,225,0,0"/>
+        <Label Content="X-Z force control" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="450,225,0,0"/>
+        <Rectangle x:Name="box1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="136,256,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" Height="300" MouseDown="box1_MouseDown" MouseMove="box1_MouseMove" MouseUp="box1_MouseUp"/>
+        <Rectangle x:Name="box2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="450,256,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" Height="300" MouseDown="box2_MouseDown" MouseMove="box2_MouseMove" MouseUp="box2_MouseUp"/>
+
+        <Rectangle x:Name="XYbox" Fill="#fff4f4f5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,50, 0,0" Width="150" Height="150" Stroke="Black" />
+        <Line X1="400" Y1="125" X2="550" Y2="125" Stroke="Black" StrokeThickness="2"/>
+        <Line X1="475" Y1="50" X2="475" Y2="200" Stroke="Black" StrokeThickness="2"/>
+        <Line x:Name="XYForceLine" X1="475" Y1="125" X2="555" Y2="125" Stroke="Red" StrokeThickness="8"/>
+        <Rectangle x:Name="XZbox" Fill="#fff4f4f5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,50, 0,0" Width="150" Height="150" Stroke="Black" />
+        <Line X1="600" Y1="125" X2="750" Y2="125" Stroke="Black" StrokeThickness="2"/>
+        <Line X1="675" Y1="50" X2="675" Y2="200" Stroke="Black" StrokeThickness="2"/>
+        <Label Content="X-Y force plot" FontSize="15" FontWeight="Bold" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="399,24,0,0"/>
+        <Label Content="X-Z force plot" FontSize="15" FontWeight="Bold" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="600,24,0,0"/>
+        <Line x:Name="XZForceLine" X1="675" Y1="125" X2="655" Y2="125" Stroke="Red" StrokeThickness="8"/>
+        <Label FontWeight="Bold" Content="UDP Messages" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="778,32,0,0" />
+        <Label x:Name="UDPDebug" Content="UDP not connected" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="778,58,0,0" Width="200" Height="70" Background="LightGray"/>
+        <CheckBox x:Name="sendCheck" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Enable Control via UDP" Margin="778,138,0,0"/>
+        <Label FontWeight="Bold" Content="Single axis force control" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="136,10,0,0" />
+    </Grid>
+</Window>
