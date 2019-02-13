@@ -97,4 +97,4 @@ There are other parts you need to build the device. The followings are the parts
 
 ## Contact
 
-If you have any questions, please send contact Seongkook Heo (seongkook@dgp.toronto.edu). 
+If you have any questions, please contact Seongkook Heo (seongkook@dgp.toronto.edu). 
