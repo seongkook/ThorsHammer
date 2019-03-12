@@ -75,9 +75,10 @@ There are other parts you need to build the device. The followings are the parts
 
 - 12 x 180 mm-long, 8 mm-diameter (e.g., https://www.amazon.com/ARRIS-Wrapped-Carbon-Glossy-Surface/dp/B00RWXJYVE)
 
-#### Power Supply
+#### Power Supply or Battery
 
 * DC Power supply (12V, >700W). We used 2 x 350 W power supplies (https://www.amazon.com/NES-350-12-Switching-Power-Supply-110-240/dp/B007K2H0GI/)
+* Instead of using a power supply, you may use a 4s Li-Po battery (14.8V) and make it more mobile. (Something like this: https://www.amazon.com/RoaringTop-Battery-2200mAh-14-8V-Airplane/dp/B01N00V5VZ)
 
 #### Plastic Fasteners (>3mm)
 
